@@ -1,4 +1,4 @@
-from models import models
+from db import models
 
 
 def admin_register(name, password):

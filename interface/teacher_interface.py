@@ -1,8 +1,9 @@
 
-from conf import setting
-from lib import common
 import os
-from models import models
+
+from conf import setting
+from db import models
+from lib import common
 
 
 def check_course(teacher_name):

@@ -1,6 +1,4 @@
-
-from models import models
-
+from db import models
 
 
 def student_register(name, password):
