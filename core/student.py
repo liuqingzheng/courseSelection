@@ -52,7 +52,6 @@ def student_login():
 @common.login_auth(auth_type='student')
 def choose_school():
     print('选择校区')
-    # 先查回所有校区
     while True:
         # 循环打印校区
         school_name_list = school_interface.check_all_school()
@@ -72,6 +71,7 @@ def choose_school():
                     break
                 else:
                     print(msg)
+                    break
             else:
                 print('请选择存在的学校')
         else:

@@ -2,6 +2,11 @@ import os
 
 
 def login_auth(auth_type):
+    '''
+    带参登录认证装饰器
+    :param auth_type:
+    :return:
+    '''
     from core import admin, student, teacher
     def auth(func):
         def wrapper(*args, **kwargs):
@@ -30,8 +35,12 @@ def login_auth(auth_type):
 
 
 def get_all_file(file_dir):
-    file_list = []
-    for _, _, files in os.walk(file_dir):
-        for file in files:
-            file_list.append(file)
+    '''
+    获得一个文件下所有文件的名字
+    ps:
+    os.listdir() 方法用于返回指定的文件夹包含的文件或文件夹的名字的列表
+    :param file_dir:
+    :return:
+    '''
+    file_list = os.listdir(file_dir)
     return file_list

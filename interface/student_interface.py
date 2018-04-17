@@ -27,9 +27,21 @@ def choose_school(student_name, school_name):
     :return:
     '''
     obj = models.Student.get_obj_by_name(student_name)
-    obj.choose_school(school_name)
-    return True, '%s choose %s school，success' % (student_name, school_name)
+    #先检查是否选择了校区，选择了校区不能再选
+    if  obj.school:
+        return False,'您已经选择过校区了'
+    else:
+        obj.choose_school(school_name)
+        return True, '%s choose %s school，success' % (student_name, school_name)
 
+def get_school_by_student(student_name):
+    '''
+    通过学生姓名获取所在学校接口
+    :param student_name:
+    :return:
+    '''
+    obj_student = models.Student.get_obj_by_name(student_name)
+    return obj_student.school
 
 def get_can_choose_course(student_name):
     '''
