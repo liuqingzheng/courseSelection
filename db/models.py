@@ -8,7 +8,7 @@ class BaseClass:
 
     @classmethod
     def get_obj_by_name(cls, name):
-        return db_handler.select(name, cls.__name__)
+        return db_handler.select(name, cls.__name__.lower())
 
     def save(self):
         db_handler.save(self)
@@ -65,6 +65,7 @@ class Student(BaseClass):
     '''
 
     def __init__(self):
+        self.school=None
         self.course_list = []
         self.scores = {}
 

@@ -1,0 +1,34 @@
+总共分三个视图：
+    管理员视图：
+        def admin_register():
+            pass
+        def admin_login():
+            pass
+        def creat_school():
+            pass
+        def creat_teacher():
+            pass
+        def creat_course():
+            pass
+    老师视图：
+        def teacher_login():
+            pass
+        def check_course():
+            pass
+        def choose_course():
+            pass
+        def check_student():
+            pass
+        def modify_score():
+            pass
+    学生视图：
+        def student_register():
+            pass
+        def student_login():
+            pass
+        def choose_school():
+            pass
+        def choose_course():
+            pass
+        def check_score():
+            pass

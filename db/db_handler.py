@@ -4,7 +4,7 @@ from conf import setting
 
 
 def save(obj):
-    path_obj = os.path.join(setting.BASE_DB, obj.__class__.__name__)
+    path_obj = os.path.join(setting.BASE_DB, obj.__class__.__name__.lower())
     if not os.path.isdir(path_obj):
         os.mkdir(path_obj)
     path_file = os.path.join(path_obj, obj.name)

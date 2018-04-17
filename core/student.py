@@ -127,7 +127,6 @@ func_dic = {
 
 }
 
-
 def student_view():
     while True:
         print('''

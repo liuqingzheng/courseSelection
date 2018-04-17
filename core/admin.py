@@ -1,4 +1,3 @@
-
 from interface import common_interface, admin_interface, school_interface
 from lib import common
 
@@ -54,7 +53,7 @@ def creat_school():
     print('创建学校')
     while True:
         school_name = input('please input school name>>:').strip()
-        if school_name =='q':break
+        if school_name == 'q': break
         school_address = input('please input school address>>:').strip()
 
         flag, msg = admin_interface.creat_school(admin_info['name'], school_name, school_address)
@@ -92,7 +91,7 @@ def creat_course():
         for i, school in enumerate(school_name_list):
             print('%s schoolName：%s' % (i, school))
         choose = input('请先选择校区（输入数字）>>:')
-        if choose == 'q':break
+        if choose == 'q': break
         if choose.isdigit():
             choose = int(choose)
             if choose >= 0 and choose < len(school_name_list):
@@ -107,6 +106,7 @@ def creat_course():
                 print('请输入存在的校区')
         else:
             print('must input number')
+
 
 
 func_dic = {
