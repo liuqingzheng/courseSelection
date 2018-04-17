@@ -15,7 +15,7 @@ def save(obj):
 
 def select(name, type):
     '''
-    查询方法，传入name和type
+    查询方法，传入name和type(admin,course,school,teacher,student)
     :param name:
     :param type:
     :return:
