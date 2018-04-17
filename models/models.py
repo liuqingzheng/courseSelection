@@ -1,5 +1,3 @@
-import hashlib
-import time
 from db import db_handler
 
 

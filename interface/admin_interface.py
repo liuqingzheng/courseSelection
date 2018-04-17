@@ -18,6 +18,13 @@ def admin_register(name, password):
 
 
 def creat_school(admin_name, school_name, address):
+    '''
+    创建学校接口
+    :param admin_name:
+    :param school_name:
+    :param address:
+    :return:
+    '''
     obj = models.School.get_obj_by_name(school_name)
     if not obj:  # 学校不存在，继续创建
         admin_obj = models.Admin.get_obj_by_name(admin_name)
@@ -28,6 +35,13 @@ def creat_school(admin_name, school_name, address):
 
 
 def creat_teacher(admin_name, teacher_name, password='456'):
+    '''
+    创建老师接口，默认密码为456，后期可以写一个修改密码的接口
+    :param admin_name:
+    :param teacher_name:
+    :param password:
+    :return:
+    '''
     obj = models.Teacher.get_obj_by_name(teacher_name)
     if not obj:
         admin_obj = models.Admin.get_obj_by_name(admin_name)

@@ -2,6 +2,13 @@ from models import models
 
 
 def login_interface(name, password, type):
+    '''
+    登录的通用接口
+    :param name:
+    :param password:
+    :param type:
+    :return:
+    '''
     if type == 'admin':
         obj = models.Admin.get_obj_by_name(name)
     elif type == 'teacher':

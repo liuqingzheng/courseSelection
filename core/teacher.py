@@ -47,10 +47,10 @@ def choose_course():
         for i, course in enumerate(course_list):
             print('%s :%s' % (i, course))
         choice = input('请选择您要教授的课程:').strip()
-
+        if choice =='q':break
         if choice.isdigit():
             choice = int(choice)
-            if choice >= 0 or choice < len(course_list):
+            if choice >= 0 and choice < len(course_list):
                 teacher_interface.choose_course(teacher_info['name'], course_list[choice])
                 break
             else:
@@ -63,6 +63,9 @@ def choose_course():
 def check_student():
     print('查看课程下学生')
     course_list = teacher_interface.check_course(teacher_info['name'])
+    if not course_list:
+        print('您暂无教授课程，请先选择课程')
+        return
     for i, course in enumerate(course_list):
         print('%s : %s' % (i, course))
     choice = input('请选择要查看的课程').strip()
@@ -83,6 +86,9 @@ def modify_score():
     print('修改成绩')
     while True:
         course_list = teacher_interface.check_course(teacher_info['name'])
+        if not course_list:
+            print('您暂无教授的课程，请先选择教授课程')
+            break
         for i, course in enumerate(course_list):
             print('%s : %s' % (i, course))
         choice = input('请选择要查看的课程').strip()
@@ -90,6 +96,9 @@ def modify_score():
             choice = int(choice)
             if choice >= 0 and choice < len(course_list):
                 student_list = teacher_interface.check_student_by_course(course_list[choice])
+                if not student_list:
+                    print('该课程下暂无学生')
+                    break
                 for i, student in enumerate(student_list):
                     print('%s : %s' % (i, student))
 

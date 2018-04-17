@@ -4,6 +4,10 @@ import os
 
 
 def check_all_school():
+    '''
+
+    :return:
+    '''
     base_dir_school = os.path.join(setting.BASE_DB, 'school')
     school_list = common.get_all_file(base_dir_school)
     return school_list

@@ -62,9 +62,10 @@ def choose_school():
         for i, school in enumerate(school_name_list):
             print('%s schoolName：%s' % (i, school))
         choose = input('请先选择校区（输入数字）>>:')
+        if choose == 'q': break
         if choose.isdigit():
             choose = int(choose)
-            if choose >= 0 or choose < (len(school_name_list) - 1):
+            if choose >= 0 and choose < len(school_name_list):
                 flag, msg = student_interface.choose_school(student_info['name'], school_name_list[choose])
                 if flag:
                     print(msg)
@@ -84,36 +85,37 @@ def choose_course():
     while True:
         flag, msg, course_name_list = student_interface.get_can_choose_course(student_info['name'])
         if not course_name_list:
-            print('')
+            print('暂无可选择课程')
             return
         for i, course_name in enumerate(course_name_list):
             print('%s :%s' % (i, course_name))
 
         choice = input('please choice course(number)>>:').strip()
+        if choice == 'q':break
         if choice.isdigit():
             choice = int(choice)
-
-            if choice < 0 or choice > len(course_name_list) - 1:
-                print('please input course exisit')
-                continue
-            else:
+            if choice >= 0 and choice < len(course_name_list):
                 flag, msg = student_interface.choose_course(student_info['name'], course_name_list[choice])
                 if flag:
                     print(msg)
                     break
                 else:
                     print(msg)
-                    continue
+            else:
+                print('please input course exisit')
+                continue
         else:
             print('please input number')
-            continue
 
 
 @common.login_auth(auth_type='student')
 def check_score():
     print('查看成绩')
     score_dic = student_interface.get_score(student_info['name'])
-    print(score_dic)
+    if score_dic:
+        print(score_dic)
+    else:
+        print('暂无成绩')
 
 
 func_dic = {
