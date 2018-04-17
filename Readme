@@ -32,3 +32,31 @@
             pass
         def check_score():
             pass
+
+
+conf放置配置信息setting
+core：放置用户层视图
+db：数据操作层py文件和以文件形式保存的数据
+interface：放置接口相关信息，有管理员接口，老师接口，学校接口，学生接口和公共接口
+lib：放置公共方法
+
+
+用户功能层：src下：
+                src：主视图，
+                admin：管理员视图，
+                student：学生视图
+                teacher：老师视图
+
+接口层：interface下：
+                  admin_interface管理员的接口
+                  common_interface公共的接口
+                  school_interface学校的接口
+                  student_interface学生的接口
+                  teacher_interface老师的接口
+数据层：db目录下：
+                db_handler，文件操作相关的方法
+                models：各种类及类方法的定义
+
+                其它目录：admin，course，school，student，teacher是自动生成的目录，用来存放数据信息
+
+start.py启动文件
